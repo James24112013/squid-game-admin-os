@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squid Game Administration OS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>Squid Game</h1>
+        <div class="status"><span class="dot"></span> Administration OS</div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-group">
+          <div class="nav-section">Core Systems</div>
+          <button class="nav-item active" data-target="players">
+            <span>Player Files</span>
+            <span class="tag">067</span>
+          </button>
+          <button class="nav-item" data-target="staff">
+            <span>Staff Database</span>
+            <span class="tag">42</span>
+          </button>
+          <button class="nav-item" data-target="games">
+            <span>Game Management</span>
+            <span class="tag">03</span>
+          </button>
+          <button class="nav-item" data-target="security">
+            <span>Security</span>
+            <span class="tag">24/7</span>
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-section">Records</div>
+          <button class="nav-item" data-target="incidents">
+            <span>Incident Reports</span>
+            <span class="tag">19</span>
+          </button>
+          <button class="nav-item" data-target="medical">
+            <span>Medical Records</span>
+            <span class="tag">08</span>
+          </button>
+          <button class="nav-item" data-target="discipline">
+            <span>Disciplinary</span>
+            <span class="tag">11</span>
+          </button>
+          <button class="nav-item" data-target="facility">
+            <span>Facility Map</span>
+            <span class="tag">A-D</span>
+          </button>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-section">Analytics</div>
+          <button class="nav-item" data-target="stats">
+            <span>Statistics</span>
+            <span class="tag">Live</span>
+          </button>
+          <button class="nav-item" data-target="logs">
+            <span>System Logs</span>
+            <span class="tag">191</span>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="top-bar">
+        <div class="title">System Status: Online</div>
+        <div class="status-strip">
+          <span>Current Round <strong>03</strong></span>
+          <span>Active Players <strong>218</strong></span>
+          <span>Prize Fund <strong>₩21,800,000,000</strong></span>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="label">Active Contestants</div>
+            <div class="value">218</div>
+            <div class="delta">+12 since last shift</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="label">Eliminations</div>
+            <div class="value">284</div>
+            <div class="delta">11% below forecast</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="label">Staff Online</div>
+            <div class="value">42</div>
+            <div class="delta">06 supervisors active</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="label">Room Access</div>
+            <div class="value">96%</div>
+            <div class="delta">11 door checks pending</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="label">Prize Pool</div>
+            <div class="value">₩21.8B</div>
+            <div class="delta">Base + bonus structure</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Player Search Terminal</h2>
+              <button class="terminal-btn">Search Archive</button>
+            </div>
+
+            <div class="console-box">
+              <div class="search-row">
+                <input id="searchInput" type="text" placeholder="Enter contestant ID or name..." value="067" />
+                <button id="searchBtn">Search</button>
+              </div>
+
+              <div class="player-file">
+                <div class="player-header">
+                  <h3>Contestant File</h3>
+                  <span class="status-pill" id="playerStatusBadge">ACTIVE</span>
+                </div>
+
+                <div class="player-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">ID</span>
+                    <span class="meta-value" id="playerId">067</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Name</span>
+                    <span class="meta-value" id="playerName">Kang Sae-byeok</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Age</span>
+                    <span class="meta-value" id="playerAge">27</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Room</span>
+                    <span class="meta-value" id="playerRoom">Dorm-A-067</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value" id="playerStatus">ACTIVE</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Current Round</span>
+                    <span class="meta-value" id="playerRound">3</span>
+                  </div>
+                </div>
+
+                <div class="section-title">Game History</div>
+                <ul class="history-list" id="historyList">
+                  <li>Red Light, Green Light</li>
+                  <li>Dalgona</li>
+                  <li>Tug of War</li>
+                  <li>Marbles</li>
+                </ul>
+
+                <div class="mini-grid">
+                  <div class="metric-box">
+                    <div class="label">Incidents</div>
+                    <div class="num" id="incidentsCount">0</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="label">Disciplinary</div>
+                    <div class="num" id="disciplineCount">0</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="label">Medical</div>
+                    <div class="num" id="medicalScore">STABLE</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="label">Access Level</div>
+                    <div class="num" id="accessLevel">CONTESTANT</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Operational Feed</h2>
+              <button class="terminal-btn">Live</button>
+            </div>
+
+            <div class="activity-box">
+              <div class="section-title">Recent Activity</div>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <span>Door access - Dorm A checkpoint</span>
+                  <span class="time">02:14</span>
+                </div>
+                <div class="activity-item">
+                  <span>Medical status review - Room 014</span>
+                  <span class="time">02:08</span>
+                </div>
+                <div class="activity-item">
+                  <span>Security alert cleared</span>
+                  <span class="time">01:52</span>
+                </div>
+                <div class="activity-item">
+                  <span>Prize pool adjusted</span>
+                  <span class="time">01:31</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="base-grid">
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Security Camera Dashboard</h2>
+              <button class="terminal-btn">Monitoring</button>
+            </div>
+            <div class="camera-panel">
+              <div class="camera-feed"></div>
+              <div class="camera-feed"></div>
+              <div class="camera-feed"></div>
+              <div class="camera-feed"></div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Staff Database</h2>
+              <button class="terminal-btn">Access</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Rank</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>G-01</td>
+                    <td>Frontman</td>
+                    <td>Supervisor</td>
+                    <td>Admin</td>
+                  </tr>
+                  <tr>
+                    <td>G-07</td>
+                    <td>Young-il</td>
+                    <td>Guard</td>
+                    <td>Security</td>
+                  </tr>
+                  <tr>
+                    <td>M-12</td>
+                    <td>Dr. Park</td>
+                    <td>Manager</td>
+                    <td>Medical</td>
+                  </tr>
+                  <tr>
+                    <td>A-03</td>
+                    <td>Ji-eun</td>
+                    <td>Administrator</td>
+                    <td>Operations</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>System Logs</h2>
+              <button class="terminal-btn">Audit</button>
+            </div>
+            <div class="log-list">
+              <div class="log-item">
+                <span class="event">Contestant 067 access granted</span>
+                <span class="time">03:18</span>
+              </div>
+              <div class="log-item">
+                <span class="event danger">Guard patrol anomaly flagged</span>
+                <span class="time">03:06</span>
+              </div>
+              <div class="log-item">
+                <span class="event warning">Medical check scheduled</span>
+                <span class="time">02:53</span>
+              </div>
+              <div class="log-item">
+                <span class="event">Prize ledger recalculated</span>
+                <span class="time">02:40</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="two-col" style="margin-top:16px;">
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Contestant Tracker</h2>
+              <button class="terminal-btn">Ranking</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1</td>
+                    <td>067</td>
+                    <td>Kang Sae-byeok</td>
+                    <td><span class="badge active">ACTIVE</span></td>
+                  </tr>
+                  <tr>
+                    <td>#2</td>
+                    <td>218</td>
+                    <td>Seon-nyeo</td>
+                    <td><span class="badge active">ACTIVE</span></td>
+                  </tr>
+                  <tr>
+                    <td>#3</td>
+                    <td>120</td>
+                    <td>Gi-hun</td>
+                    <td><span class="badge winner">WINNER</span></td>
+                  </tr>
+                  <tr>
+                    <td>#4</td>
+                    <td>112</td>
+                    <td>Ali Abdul</td>
+                    <td><span class="badge eliminated">ELIMINATED</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Facility Map</h2>
+              <button class="terminal-btn">Rooms</button>
+            </div>
+            <div class="map-panel">
+              <div class="facility-map">
+                <div class="room a">Dorm A</div>
+                <div class="room b">Control</div>
+                <div class="room c">Medical</div>
+                <div class="room d">Arena</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
